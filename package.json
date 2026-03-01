@@ -1,7 +1,7 @@
 {
-  "name": "@qingchencloud/openclaw-zh",
-  "version": "2026.2.26-zh.3",
-  "description": "OpenClaw 汉化发行版 - 开源个人 AI 助手平台中文版，每小时自动同步官方更新",
+  "name": "openclaw-zh-clean",
+  "version": "1.0.0",
+  "description": "OpenClaw 纯汉化版 - 无商业注入，无第三方推广，仅翻译规则",
   "keywords": [
     "openclaw",
     "chinese",
@@ -15,17 +15,16 @@
     "claude",
     "gpt"
   ],
-  "homepage": "https://openclaw.qt.cool/",
+  "homepage": "https://github.com/zymclaw/OpenClawHan",
   "repository": {
     "type": "git",
-    "url": "https://github.com/1186258278/OpenClawChineseTranslation"
+    "url": "https://github.com/zymclaw/OpenClawHan"
   },
   "bugs": {
-    "url": "https://github.com/1186258278/OpenClawChineseTranslation/issues"
+    "url": "https://github.com/zymclaw/OpenClawHan/issues"
   },
   "author": {
-    "name": "武汉晴辰天下网络科技有限公司",
-    "url": "https://qingchencloud.com/"
+    "name": "ZYM"
   },
   "license": "MIT",
   "type": "module",
@@ -45,6 +44,7 @@
   "files": [
     "cli/",
     "translations/",
+    "scripts/",
     "install.sh",
     "install.ps1",
     "README.md",

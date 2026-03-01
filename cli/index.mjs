@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 🦞 OpenClaw 中文版 CLI
+ * 🦞 OpenClaw 纯汉化版 CLI
  * 
  * 汉化管理工具 - 应用、验证、恢复汉化补丁
  * 
@@ -25,7 +25,7 @@ const VERSION = '1.0.0';
 
 const LOGO = `
 ${colors.cyan}╔═══════════════════════════════════════════════╗
-║  ${colors.bold}🦞 OpenClaw 中文版 CLI${colors.reset}${colors.cyan}                        ║
+║  ${colors.bold}🦞 OpenClaw 纯汉化版 CLI${colors.reset}${colors.cyan}                      ║
 ║     汉化管理工具 v${VERSION}                       ║
 ╚═══════════════════════════════════════════════╝${colors.reset}
 `;
@@ -78,9 +78,8 @@ ${colors.bold}本地开发:${colors.reset}
   npm run cli -- apply --dry-run
 
 ${colors.bold}更多信息:${colors.reset}
-  官网:   https://openclaw.qt.cool/
-  GitHub: https://github.com/1186258278/OpenClawChineseTranslation
-  npm:    https://www.npmjs.com/package/@qingchencloud/openclaw-zh
+  GitHub: https://github.com/zymclaw/OpenClawHan
+  OpenClaw 官方: https://github.com/openclaw/openclaw
 `);
 }
 
@@ -121,7 +120,7 @@ async function main() {
     
     case '--version':
     case '-v':
-      console.log(`openclaw-zh v${VERSION}`);
+      console.log(`openclaw-zh-clean v${VERSION}`);
       break;
     
     default:

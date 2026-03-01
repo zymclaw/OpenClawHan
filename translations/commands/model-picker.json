@@ -28,6 +28,6 @@
 
     "hint: `${count} model${count === 1 ? \"\" : \"s\"}`": "hint: `${count} 个模型`",
 
-    "label: provider,": "label: provider === \"shengsuanyun\" ? \"胜算云\" : provider,"
+    "label: provider,": "label: provider === \"openai\" ? \"\" : provider,"
   }
 }

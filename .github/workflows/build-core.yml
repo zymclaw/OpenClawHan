@@ -1,6 +1,6 @@
 # ============================================================
 # OpenClaw 汉化发行版 - 核心构建逻辑（可复用工作流）
-# 武汉晴辰天下网络科技有限公司 | https://qingchencloud.com/
+# ZYM | https://github.com/zymclaw/OpenClawHan
 # ============================================================
 #
 # 此工作流被 nightly.yml 和 sync-and-release.yml 调用
@@ -257,12 +257,12 @@ jobs:
           
           # 修改包信息
           if [ "$VERSION_TYPE" = "nightly" ]; then
-            jq '.description = "OpenClaw 汉化发行版 (Nightly) - 武汉晴辰天下网络科技有限公司"' package.json > tmp.json && mv tmp.json package.json
+            jq '.description = "OpenClaw 汉化发行版 (Nightly) - ZYM"' package.json > tmp.json && mv tmp.json package.json
           else
-            jq '.description = "OpenClaw 汉化发行版（稳定版）- 武汉晴辰天下网络科技有限公司"' package.json > tmp.json && mv tmp.json package.json
+            jq '.description = "OpenClaw 汉化发行版（稳定版）- ZYM"' package.json > tmp.json && mv tmp.json package.json
           fi
           
-          jq '.name = "@qingchencloud/openclaw-zh"' package.json > tmp.json && mv tmp.json package.json
+          jq '.name = "openclaw-zh-clean"' package.json > tmp.json && mv tmp.json package.json
           
           # 使用中文 README
           cp ../README.md ./README.md

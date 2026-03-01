@@ -1,6 +1,6 @@
 # ============================================================
 # OpenClaw 汉化发行版 - 最新版（Nightly）自动构建工作流
-# 武汉晴辰天下网络科技有限公司 | https://qingchencloud.com/
+# ZYM | https://github.com/zymclaw/OpenClawHan
 # ============================================================
 #
 # 触发方式：
@@ -16,7 +16,7 @@
 #   - 调用 build-core.yml 复用工作流，减少代码重复
 #
 # 用户安装：
-#   npm install -g @qingchencloud/openclaw-zh@nightly
+#   npm install -g openclaw-zh-clean@nightly
 # ============================================================
 
 name: 最新版构建 (Nightly)
@@ -159,8 +159,8 @@ jobs:
         run: |
           echo "🔄 触发 npmmirror 同步..."
           # 主动触发 npmmirror 同步，解决国内镜像源版本滞后问题
-          # 参考: https://github.com/1186258278/OpenClawChineseTranslation/issues/32
-          curl -sX PUT "https://registry-direct.npmmirror.com/-/package/@qingchencloud/openclaw-zh/syncs" || true
+          # 参考: https://github.com/zymclaw/OpenClawHan/issues/32
+          curl -sX PUT "https://registry-direct.npmmirror.com/-/package/openclaw-zh-clean/syncs" || true
           echo "✅ 已触发 npmmirror 同步"
         continue-on-error: true
 
@@ -190,7 +190,7 @@ jobs:
             
             > ⚠️ **警告**：此为每小时自动构建版本，追踪上游最新代码，可能包含未完全测试的更改。
             > 
-            > 🔒 **需要稳定版？** 请安装 `@latest`：`npm install -g @qingchencloud/openclaw-zh@latest`
+            > 🔒 **需要稳定版？** 请安装 `@latest`：`npm install -g openclaw-zh-clean@latest`
             
             **构建时间**: ${{ needs.build.outputs.build_date }} ${{ needs.build.outputs.build_time }} (UTC)
             **上游版本**: ${{ needs.check-upstream.outputs.upstream_version }}
@@ -215,23 +215,23 @@ jobs:
             
             ```bash
             # 安装 nightly 版本
-            npm install -g @qingchencloud/openclaw-zh@nightly
+            npm install -g openclaw-zh-clean@nightly
             
             # 切换回稳定版
-            npm install -g @qingchencloud/openclaw-zh@latest
+            npm install -g openclaw-zh-clean@latest
             ```
             
             ---
             
             ### 🔗 相关链接
             
-            - 🔥 官网: https://openclaw.qt.cool/
-            - 📖 稳定版: https://github.com/1186258278/OpenClawChineseTranslation/releases/latest
-            - 📦 npm: https://www.npmjs.com/package/@qingchencloud/openclaw-zh
+            - 🔥 官网: https://github.com/zymclaw/OpenClawHan
+            - 📖 稳定版: https://github.com/zymclaw/OpenClawHan/releases/latest
+            - 📦 npm: https://www.npmjs.com/package/openclaw-zh-clean
             
             ---
             
-            **武汉晴辰天下网络科技有限公司** | https://qingchencloud.com/
+            **ZYM** | https://github.com/zymclaw/OpenClawHan
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -323,11 +323,11 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### 📦 安装方式" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**npm**: \`npm install -g @qingchencloud/openclaw-zh@nightly\`" >> $GITHUB_STEP_SUMMARY
+          echo "**npm**: \`npm install -g openclaw-zh-clean@nightly\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Docker (ghcr.io)**: \`docker pull ghcr.io/1186258278/openclaw-zh:nightly\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Docker (ghcr.io)**: \`docker pull ghcr.io/zymclaw/openclaw-zh-clean:nightly\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Docker Hub (国内加速)**: \`docker pull 1186258278/openclaw-zh:nightly\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Docker Hub (国内加速)**: \`docker pull zymclaw/openclaw-zh-clean:nightly\`" >> $GITHUB_STEP_SUMMARY
 
   # ==================== 无变更时的摘要 ====================
   skip-summary:

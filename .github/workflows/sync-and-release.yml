@@ -1,6 +1,6 @@
 # ============================================================
 # OpenClaw 汉化发行版 - 稳定版发布工作流
-# 武汉晴辰天下网络科技有限公司 | https://qingchencloud.com/
+# ZYM | https://github.com/zymclaw/OpenClawHan
 # ============================================================
 # 
 # 触发方式：
@@ -119,12 +119,12 @@ jobs:
         run: |
           echo "🔄 触发 npmmirror 同步..."
           # 主动触发 npmmirror 同步，解决国内镜像源版本滞后问题
-          # 参考: https://github.com/1186258278/OpenClawChineseTranslation/issues/32
-          curl -sX PUT "https://registry-direct.npmmirror.com/-/package/@qingchencloud/openclaw-zh/syncs" || true
+          # 参考: https://github.com/zymclaw/OpenClawHan/issues/32
+          curl -sX PUT "https://registry-direct.npmmirror.com/-/package/openclaw-zh-clean/syncs" || true
           echo "⏳ 等待 30 秒让同步生效..."
           sleep 30
           # 验证同步结果
-          MIRROR_VER=$(curl -s "https://registry.npmmirror.com/@qingchencloud/openclaw-zh/latest" | jq -r '.version // "unknown"')
+          MIRROR_VER=$(curl -s "https://registry.npmmirror.com/openclaw-zh-clean/latest" | jq -r '.version // "unknown"')
           echo "📦 npmmirror 当前版本: $MIRROR_VER"
           echo "📦 本次发布版本: ${{ needs.prepare.outputs.release_version }}"
           if [ "$MIRROR_VER" = "${{ needs.prepare.outputs.release_version }}" ]; then
@@ -163,35 +163,35 @@ jobs:
             
             **稳定版（推荐）：**
             ```bash
-            npm install -g @qingchencloud/openclaw-zh@latest
+            npm install -g openclaw-zh-clean@latest
             ```
             
             **最新版（每小时更新）：**
             ```bash
-            npm install -g @qingchencloud/openclaw-zh@nightly
+            npm install -g openclaw-zh-clean@nightly
             ```
             
             **一键安装脚本：**
             ```bash
             # Linux/macOS
-            curl -fsSL https://cdn.jsdelivr.net/gh/1186258278/OpenClawChineseTranslation@main/install.sh | bash
+            curl -fsSL https://cdn.jsdelivr.net/gh/zymclaw/OpenClawHan@main/install.sh | bash
             
             # Windows PowerShell
-            powershell -c "irm https://cdn.jsdelivr.net/gh/1186258278/OpenClawChineseTranslation@main/install.ps1 | iex"
+            powershell -c "irm https://cdn.jsdelivr.net/gh/zymclaw/OpenClawHan@main/install.ps1 | iex"
             ```
             
             ---
             
             ### 🔗 相关链接
             
-            - 🔥 官网: https://openclaw.qt.cool/
-            - 📖 文档: https://github.com/1186258278/OpenClawChineseTranslation
-            - 📦 npm: https://www.npmjs.com/package/@qingchencloud/openclaw-zh
-            - 🌙 最新版: https://github.com/1186258278/OpenClawChineseTranslation/releases/tag/nightly
+            - 🔥 官网: https://github.com/zymclaw/OpenClawHan
+            - 📖 文档: https://github.com/zymclaw/OpenClawHan
+            - 📦 npm: https://www.npmjs.com/package/openclaw-zh-clean
+            - 🌙 最新版: https://github.com/zymclaw/OpenClawHan/releases/tag/nightly
             
             ---
             
-            **武汉晴辰天下网络科技有限公司** | https://qingchencloud.com/
+            **ZYM** | https://github.com/zymclaw/OpenClawHan
           draft: false
           prerelease: false
         env:
@@ -282,8 +282,8 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### 📦 安装方式" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**npm**: \`npm install -g @qingchencloud/openclaw-zh@latest\`" >> $GITHUB_STEP_SUMMARY
+          echo "**npm**: \`npm install -g openclaw-zh-clean@latest\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Docker (ghcr.io)**: \`docker pull ghcr.io/1186258278/openclaw-zh:latest\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Docker (ghcr.io)**: \`docker pull ghcr.io/zymclaw/openclaw-zh-clean:latest\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Docker Hub (国内加速)**: \`docker pull 1186258278/openclaw-zh:latest\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Docker Hub (国内加速)**: \`docker pull zymclaw/openclaw-zh-clean:latest\`" >> $GITHUB_STEP_SUMMARY

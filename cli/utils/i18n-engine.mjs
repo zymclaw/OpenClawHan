@@ -52,7 +52,7 @@ export async function loadAllTranslations(mainConfig, verbose = false) {
 }
 
 /**
- * 复制新文件到目标目录（用于全新的胜算云源文件等）
+ * 复制新文件到目标目录（用于全新的源文件等）
  */
 export async function applyCopyFiles(copyConfig, targetDir, options = {}) {
   const { dryRun = false, verify = false, verbose = false } = options;
